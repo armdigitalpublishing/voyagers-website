@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Customs Mistakes Small Businesses Make — The Trade Wind</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --sand: #D4A96A; --gold: #C8922A; --ivory: #F5ECD7; --sage: #7A8C6E; --dark: #1A0F08; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--dark); color: var(--ivory); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 60px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(26,15,8,0.97), transparent); }
+  .nav-logo { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 0.3em; color: var(--sand); text-decoration: none; }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,236,215,0.6); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--sand); }
+  .article-hero { padding: 140px 60px 60px; border-bottom: 1px solid rgba(200,146,42,0.12); }
+  .article-hero-inner { max-width: 860px; margin: 0 auto; }
+  .back-link { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 40px; transition: gap 0.3s; }
+  .back-link::before { content: '←'; font-size: 14px; }
+  .back-link:hover { gap: 14px; }
+  .post-tag { display: inline-block; padding: 4px 12px; background: rgba(200,146,42,0.1); font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .post-date { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em; color: rgba(200,146,42,0.4); text-transform: uppercase; margin-bottom: 20px; }
+  .article-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4.5vw, 60px); font-weight: 300; line-height: 1.1; color: var(--ivory); margin-bottom: 24px; }
+  .article-title em { font-style: italic; color: var(--sand); }
+  .article-intro { font-size: 17px; line-height: 1.9; color: rgba(245,236,215,0.7); border-left: 2px solid var(--gold); padding-left: 24px; }
+  .article-body { max-width: 860px; margin: 0 auto; padding: 60px; }
+  .article-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: var(--ivory); margin: 48px 0 16px; }
+  .article-body p { font-size: 15px; line-height: 1.9; color: rgba(245,236,215,0.7); margin-bottom: 20px; }
+  .article-body strong { color: var(--ivory); font-weight: 500; }
+  .mistake-card { border: 1px solid rgba(200,146,42,0.15); padding: 40px; margin: 40px 0; position: relative; transition: border-color 0.4s; }
+  .mistake-card:hover { border-color: rgba(200,146,42,0.35); }
+  .mistake-number { font-family: 'Cormorant Garamond', serif; font-size: 80px; font-weight: 300; color: rgba(200,146,42,0.08); line-height: 1; position: absolute; top: 16px; right: 24px; }
+  .mistake-label { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; }
+  .mistake-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--ivory); margin-bottom: 16px; }
+  .mistake-card p { font-size: 14px; margin-bottom: 16px; }
+  .fix-label { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.2em; color: var(--sage); text-transform: uppercase; margin: 20px 0 8px; }
+  .callout { background: rgba(200,146,42,0.06); border-left: 3px solid var(--gold); padding: 24px 28px; margin: 32px 0; }
+  .callout p { margin-bottom: 0; color: rgba(245,236,215,0.8); font-size: 14px; }
+  .callout strong { color: var(--sand); }
+  .article-footer { max-width: 860px; margin: 0 auto; padding: 0 60px 80px; }
+  .article-footer-inner { border-top: 1px solid rgba(200,146,42,0.15); padding-top: 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .author-name { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.2em; color: var(--sand); }
+  .author-title { font-size: 12px; color: rgba(245,236,215,0.4); margin-top: 4px; }
+  .back-to-blog { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  .back-to-blog::before { content: '←'; }
+  footer { border-top: 1px solid rgba(200,146,42,0.15); padding: 60px; }
+  .footer-inner { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+  .footer-latin { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: rgba(200,146,42,0.4); }
+  .footer-copy { font-size: 11px; color: rgba(245,236,215,0.2); }
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; } .nav-links { display: none; }
+    .article-hero { padding: 100px 24px 40px; }
+    .article-body { padding: 40px 24px; }
+    .article-footer { padding: 0 24px 60px; }
+    footer { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Voyagers Sourcing & Trading INTL</a>
+  <ul class="nav-links">
+    <li><a href="/#categories">What We Source</a></li>
+    <li><a href="/#mission">Our Story</a></li>
+    <li><a href="/blog/">Trade Wind</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <a href="/blog/" class="back-link">The Trade Wind</a>
+    <div class="post-tag">Trade Tips</div>
+    <div class="post-date">May 26, 2026</div>
+    <h1 class="article-title">5 Customs Mistakes Small Businesses Make —<br><em>And How to Avoid Them</em></h1>
+    <p class="article-intro">From misclassified HS codes to missing certificates of origin, these errors cost importers thousands of dollars and weeks of delays. We break down the five most common pitfalls and exactly how to avoid every one of them.</p>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p>Every year, thousands of small business importers lose money not because they sourced bad products or paid too much — but because they made avoidable mistakes at the customs border. CBP (Customs and Border Protection) is unforgiving, and the penalties for errors range from delayed shipments to seized cargo to significant fines.</p>
+  <p>The good news is that every mistake on this list is entirely preventable with the right knowledge and preparation. Here are the five we see most often.</p>
+
+  <div class="mistake-card">
+    <div class="mistake-number">1</div>
+    <div class="mistake-label">Mistake One</div>
+    <div class="mistake-title">Getting the HS Code Wrong</div>
+    <p>The Harmonized System (HS) code is the 10-digit classification number that determines your duty rate, any applicable trade remedies, and whether your product triggers additional scrutiny. Getting it wrong — even accidentally — is considered a customs violation.</p>
+    <p>Common scenario: an importer classifies human hair extensions under a general "other textile" code instead of the correct 6703 or 6704 subheading. The difference can mean applying the wrong duty rate, triggering unnecessary Section 301 tariffs, or having your shipment flagged for examination.</p>
+    <div class="fix-label">The Fix</div>
+    <p>Look up your product on the USITC tariff schedule at <strong>usitc.gov</strong> before your first shipment. If you are unsure, ask your customs broker to confirm the classification — this is part of what you pay them for. For high-value or recurring shipments, consider requesting a <strong>binding ruling</strong> from CBP, which locks in your classification and protects you from future disputes.</p>
+  </div>
+
+  <div class="mistake-card">
+    <div class="mistake-number">2</div>
+    <div class="mistake-label">Mistake Two</div>
+    <div class="mistake-title">Missing or Incorrect Certificate of Origin</div>
+    <p>The Certificate of Origin (C/O) is the document that proves where your goods were manufactured. For Vietnamese imports, this document — issued by the Vietnam Chamber of Commerce (VCCI) — is what secures your 0% base duty rate and confirms your goods are not subject to Section 301 tariffs.</p>
+    <p>Many first-time importers either forget to request it from their factory, receive one with incorrect information, or don't realize it needs to match the commercial invoice exactly. Any discrepancy gives CBP grounds to question the shipment's origin.</p>
+    <div class="fix-label">The Fix</div>
+    <p>Make the Certificate of Origin a non-negotiable item in your Purchase Order with every Vietnamese factory. Specify that it must be issued by VCCI and must match your commercial invoice line by line — same product descriptions, same quantities, same values. Check it before your goods ship, not after they arrive at port.</p>
+  </div>
+
+  <div class="mistake-card">
+    <div class="mistake-number">3</div>
+    <div class="mistake-label">Mistake Three</div>
+    <div class="mistake-title">Undervaluing the Commercial Invoice</div>
+    <p>This one feels tempting and is surprisingly common — asking a factory to write a lower value on the commercial invoice to reduce your duty bill. This is customs fraud. It is illegal. And CBP catches it more than you might think, especially on product categories they monitor closely.</p>
+    <p>The consequences range from fines of up to four times the unpaid duty, to seizure of the goods, to criminal referral in serious cases. No short-term duty saving is worth the exposure.</p>
+    <div class="fix-label">The Fix</div>
+    <p>Declare the actual transaction value — what you actually paid the factory. Your customs broker files based on this number. If your duty bill feels high, the answer is better product classification or finding a lower-duty source country — not invoice manipulation.</p>
+  </div>
+
+  <div class="mistake-card">
+    <div class="mistake-number">4</div>
+    <div class="mistake-label">Mistake Four</div>
+    <div class="mistake-title">No Customs Bond or Wrong Bond Type</div>
+    <p>Every commercial shipment entering the US requires a customs bond — it is the financial guarantee that duties and fees will be paid. First-time importers often don't know this exists until their shipment arrives at port and is held because no bond is on file.</p>
+    <p>There are two types: a single-entry bond (covers one shipment, typically $50–$100) and a continuous bond (covers all shipments for a year, typically $500). If you are importing more than three or four times per year, a continuous bond saves money and eliminates the per-shipment scramble.</p>
+    <div class="fix-label">The Fix</div>
+    <p>Get your continuous customs bond set up before your first shipment, not after. Your customs broker can arrange this as part of their onboarding process. Do this the same week you form your LLC — it is a foundational step, not an afterthought.</p>
+  </div>
+
+  <div class="mistake-card">
+    <div class="mistake-number">5</div>
+    <div class="mistake-label">Mistake Five</div>
+    <div class="mistake-title">Skipping the Pre-Shipment Inspection</div>
+    <p>You approved samples. The factory confirmed the order is ready. You release the final payment and wait for delivery. Then the shipment arrives and 15% of the units are defective, the weight is short, or the packaging is wrong.</p>
+    <p>At this point your goods are already in the US. Your factory is overseas. Your leverage is essentially zero. A $300 third-party inspection before shipment would have caught every one of those problems while you still had the ability to demand they be fixed.</p>
+    <div class="fix-label">The Fix</div>
+    <p>For any order over $5,000, budget for a pre-shipment inspection through a service like <strong>QIMA, SGS, or Asia Quality Focus</strong>. A half-day inspection runs $200–$350 and checks quantity, quality, weight, packaging, and documentation before the goods leave the factory floor. It is the cheapest insurance you will ever buy.</p>
+  </div>
+
+  <div class="callout">
+    <p><strong>Bottom line:</strong> Every one of these mistakes is avoidable with preparation, the right professional support, and treating customs compliance as a core business function — not an afterthought. A good customs broker is worth every dollar they charge for exactly this reason.</p>
+  </div>
+
+  <h2>The One Investment That Prevents All Five</h2>
+  <p>Hire a licensed customs broker before your first shipment. Not after. A good broker guides your HS code classification, reviews your documentation, holds your bond, and files your entries correctly. Their fee per shipment — typically $150–$400 — is the best money you spend in the entire importing process.</p>
+  <p>If you are building an import business, customs compliance is not a cost to minimize. It is a foundation to build on.</p>
+
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div>
+      <div class="author-name">Voyagers Sourcing & Trading INTL</div>
+      <div class="author-title">The Trade Wind — Import & Export Intelligence for American Business Owners</div>
+    </div>
+    <a href="/blog/" class="back-to-blog">All Articles</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.3em;color:var(--sand);text-decoration:none;">Voyagers Sourcing & Trading INTL</a>
+    <div class="footer-latin">Per Terram, Per Mare, Per Caelum</div>
+    <div class="footer-copy">© 2026 Voyagers Sourcing & Trading INTL, LLC</div>
+  </div>
+</footer>
+
+</body>
+</html>
