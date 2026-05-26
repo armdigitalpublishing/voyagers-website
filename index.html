@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voyagers Sourcing & Trading INTL</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --earth: #2C1810;
+    --clay: #8B4513;
+    --sand: #D4A96A;
+    --gold: #C8922A;
+    --ivory: #F5ECD7;
+    --sage: #7A8C6E;
+    --ocean: #2A4A5C;
+    --mist: #E8DCC8;
+    --dark: #1A0F08;
+    --accent: #B8732A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--ivory);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+  }
+  .cursor-ring {
+    width: 32px; height: 32px;
+    border: 1px solid rgba(200,146,42,0.4);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transition: all 0.15s ease;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 24px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(26,15,8,0.95), transparent);
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--sand);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,236,215,0.6);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--sand); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(139,69,19,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(42,74,92,0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(122,140,110,0.1) 0%, transparent 40%),
+      linear-gradient(135deg, #1A0F08 0%, #0D0704 50%, #111920 100%);
+  }
+
+  .hero-texture {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 100px,
+        rgba(200,146,42,0.02) 100px,
+        rgba(200,146,42,0.02) 101px
+      );
+  }
+
+  /* Animated compass rose */
+  .compass {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 420px;
+    height: 420px;
+    opacity: 0.08;
+    animation: rotate-slow 60s linear infinite;
+  }
+
+  @keyframes rotate-slow { to { transform: translateY(-50%) rotate(360deg); } }
+
+  .compass svg { width: 100%; height: 100%; }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 60px;
+    max-width: 800px;
+    animation: fade-up 1.2s ease both;
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--ivory);
+    margin-bottom: 12px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--sand);
+  }
+
+  .hero-tagline {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    color: var(--sage);
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+
+  .hero-mission {
+    font-size: 15px;
+    line-height: 1.9;
+    color: rgba(245,236,215,0.7);
+    max-width: 580px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 40px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    z-index: -1;
+  }
+
+  .hero-cta:hover {
+    color: var(--dark);
+  }
+
+  .hero-cta:hover::before {
+    transform: translateX(0);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(245,236,215,0.3);
+  }
+
+  .scroll-line {
+    width: 60px;
+    height: 1px;
+    background: rgba(245,236,215,0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: var(--gold);
+    animation: scroll-anim 2s ease infinite;
+  }
+
+  @keyframes scroll-anim {
+    to { left: 100%; }
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 60px;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(200,146,42,0.3), transparent);
+  }
+
+  .divider-icon {
+    color: var(--gold);
+    font-size: 16px;
+    opacity: 0.5;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 100px 60px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ivory);
+    margin-bottom: 20px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--sand);
+  }
+
+  /* CATEGORIES */
+  .categories-section {
+    padding-top: 80px;
+  }
+
+  .categories-header {
+    margin-bottom: 60px;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: rgba(200,146,42,0.1);
+  }
+
+  .category-card {
+    background: var(--dark);
+    padding: 56px 48px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: none;
+  }
+
+  .category-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--gold);
+    transition: height 0.5s ease;
+  }
+
+  .category-card:hover::before {
+    height: 100%;
+  }
+
+  .category-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 0% 0%, rgba(139,69,19,0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .category-card:hover::after { opacity: 1; }
+
+  .category-number {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: rgba(200,146,42,0.4);
+    margin-bottom: 24px;
+  }
+
+  .category-icon {
+    font-size: 28px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .category-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--ivory);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .category-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .category-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(245,236,215,0.55);
+    margin-bottom: 32px;
+  }
+
+  .category-link {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: gap 0.3s ease;
+  }
+
+  .category-link:hover { gap: 20px; }
+
+  .category-link::after {
+    content: '→';
+    font-size: 14px;
+  }
+
+  /* MISSION SECTION */
+  .mission-section {
+    padding: 100px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mission-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(42,74,92,0.08) 0%, transparent 50%),
+      linear-gradient(to bottom, rgba(26,15,8,0) 0%, rgba(139,69,19,0.05) 50%, rgba(26,15,8,0) 100%);
+  }
+
+  .mission-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .mission-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--sand);
+    border-left: 2px solid var(--gold);
+    padding-left: 40px;
+  }
+
+  .mission-text p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: rgba(245,236,215,0.65);
+    margin-bottom: 24px;
+  }
+
+  .mission-text p:last-child { margin-bottom: 0; }
+
+  .mission-signature {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--sand);
+    margin-top: 32px;
+  }
+
+  /* TRUST PILLARS */
+  .trust-section {
+    padding-top: 0;
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .trust-card {
+    padding: 48px 36px;
+    border: 1px solid rgba(200,146,42,0.12);
+    position: relative;
+    transition: border-color 0.4s;
+  }
+
+  .trust-card:hover {
+    border-color: rgba(200,146,42,0.35);
+  }
+
+  .trust-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: rgba(200,146,42,0.1);
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .trust-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .trust-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(245,236,215,0.55);
+  }
+
+  /* BLOG SECTION */
+  .blog-section {
+    padding-top: 60px;
+  }
+
+  .blog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .blog-categories {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .blog-pill {
+    padding: 8px 20px;
+    border: 1px solid rgba(200,146,42,0.2);
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,236,215,0.5);
+    cursor: none;
+    transition: all 0.3s;
+  }
+
+  .blog-pill:hover, .blog-pill.active {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2px;
+    background: rgba(200,146,42,0.08);
+  }
+
+  .blog-card {
+    background: var(--dark);
+    padding: 48px 40px;
+    transition: background 0.4s;
+    cursor: none;
+  }
+
+  .blog-card:hover {
+    background: rgba(139,69,19,0.08);
+  }
+
+  .blog-card.featured {
+    padding: 56px 48px;
+  }
+
+  .blog-date {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: rgba(200,146,42,0.5);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .blog-date::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: rgba(200,146,42,0.3);
+  }
+
+  .blog-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(200,146,42,0.1);
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .blog-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--ivory);
+    margin-bottom: 16px;
+  }
+
+  .blog-card.featured .blog-title {
+    font-size: 32px;
+  }
+
+  .blog-excerpt {
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(245,236,215,0.5);
+    margin-bottom: 28px;
+  }
+
+  .blog-read {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s;
+  }
+
+  .blog-read:hover { gap: 16px; }
+  .blog-read::after { content: '→'; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid rgba(200,146,42,0.15);
+    padding: 80px 60px 40px;
+  }
+
+  .footer-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand .brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    letter-spacing: 0.3em;
+    color: var(--sand);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-brand .brand-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: rgba(200,146,42,0.6);
+    margin-bottom: 20px;
+  }
+
+  .footer-brand p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(245,236,215,0.35);
+  }
+
+  .footer-col h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col a {
+    font-size: 13px;
+    color: rgba(245,236,215,0.4);
+    text-decoration: none;
+    transition: color 0.3s;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-col a:hover { color: var(--sand); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(200,146,42,0.08);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-latin {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: rgba(200,146,42,0.4);
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(245,236,215,0.2);
+    letter-spacing: 0.05em;
+  }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .hero-content { padding: 0 24px; }
+    .compass { display: none; }
+    section { padding: 60px 24px; }
+    .categories-grid { grid-template-columns: 1fr; }
+    .mission-inner { grid-template-columns: 1fr; gap: 40px; }
+    .trust-grid { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .mission-section { padding: 60px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Voyagers Sourcing & Trading INTL</div>
+  <ul class="nav-links">
+    <li><a href="#categories">What We Source</a></li>
+    <li><a href="#mission">Our Story</a></li>
+    <li><a href="#blog">Trade Wind</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+
+  <div class="compass">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="95" stroke="#C8922A" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="75" stroke="#C8922A" stroke-width="0.3"/>
+      <circle cx="100" cy="100" r="55" stroke="#C8922A" stroke-width="0.3"/>
+      <!-- Cardinal points -->
+      <line x1="100" y1="5" x2="100" y2="195" stroke="#C8922A" stroke-width="0.3"/>
+      <line x1="5" y1="100" x2="195" y2="100" stroke="#C8922A" stroke-width="0.3"/>
+      <!-- Diagonal lines -->
+      <line x1="33" y1="33" x2="167" y2="167" stroke="#C8922A" stroke-width="0.2"/>
+      <line x1="167" y1="33" x2="33" y2="167" stroke="#C8922A" stroke-width="0.2"/>
+      <!-- North arrow -->
+      <polygon points="100,10 95,100 100,90 105,100" fill="#C8922A"/>
+      <polygon points="100,190 95,100 100,110 105,100" fill="#C8922A" opacity="0.4"/>
+      <!-- Center -->
+      <circle cx="100" cy="100" r="4" fill="#C8922A"/>
+      <circle cx="100" cy="100" r="2" fill="#1A0F08"/>
+      <!-- Tick marks -->
+      <g stroke="#C8922A" stroke-width="0.4">
+        <line x1="100" y1="5" x2="100" y2="18"/>
+        <line x1="100" y1="182" x2="100" y2="195"/>
+        <line x1="5" y1="100" x2="18" y2="100"/>
+        <line x1="182" y1="100" x2="195" y2="100"/>
+      </g>
+      <text x="97" y="28" fill="#C8922A" font-size="8" font-family="serif">N</text>
+      <text x="97" y="182" fill="#C8922A" font-size="8" font-family="serif">S</text>
+      <text x="178" y="103" fill="#C8922A" font-size="8" font-family="serif">E</text>
+      <text x="16" y="103" fill="#C8922A" font-size="8" font-family="serif">W</text>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Est. 2026 — South Dakota, USA</div>
+    <h1 class="hero-title">
+      Where Every<br><em>Trade</em><br>Tells a Story
+    </h1>
+    <div class="hero-tagline">Voyagers Sourcing & Trading INTL, LLC</div>
+    <p class="hero-mission">
+      We are ethical adventurers. We cross oceans, build relationships, and bring back treasures worth sharing. From the villages of northern Vietnam to American businesses, every product we source carries a promise — fair trade, honest partnerships, and quality you can stake your reputation on.
+    </p>
+    <a href="#categories" class="hero-cta">Start Sourcing With Us</a>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll to Explore
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="categories-section" id="categories">
+  <div class="categories-header reveal">
+    <div class="section-label">What We Bring to Your Business</div>
+    <h2 class="section-title">Four Ways We<br><em>Serve You</em></h2>
+  </div>
+
+  <div class="categories-grid">
+    <div class="category-card reveal">
+      <div class="category-number">01</div>
+      <span class="category-icon">✦</span>
+      <h3 class="category-title">Vietnamese Human Hair</h3>
+      <div class="category-subtitle">Premium Hair. Traceable Source. Zero Compromise.</div>
+      <p class="category-desc">We source 100% authentic Vietnamese human hair directly from vetted manufacturers in northern Vietnam — where generations of women have grown some of the world's most sought-after hair. Raw, unprocessed, and cuticle-aligned. Delivered to your door, duties paid, no headaches.</p>
+      <a href="#" class="category-link">Explore Hair Sourcing</a>
+    </div>
+
+    <div class="category-card reveal reveal-delay-1">
+      <div class="category-number">02</div>
+      <span class="category-icon">◈</span>
+      <h3 class="category-title">Other Vietnamese Imports</h3>
+      <div class="category-subtitle">Vietnam Has More to Offer Than You Know.</div>
+      <p class="category-desc">Beyond hair, Vietnam is one of the world's most dynamic manufacturing economies. From natural textiles and handcrafted home goods to agricultural products and botanical extracts — we identify high-quality, low-duty products that give your business a competitive edge.</p>
+      <a href="#" class="category-link">See What We Source</a>
+    </div>
+
+    <div class="category-card reveal reveal-delay-2">
+      <div class="category-number">03</div>
+      <span class="category-icon">◇</span>
+      <h3 class="category-title">Private Label Services</h3>
+      <div class="category-subtitle">Your Brand. Our Supply Chain.</div>
+      <p class="category-desc">Ready to launch your own product line? We handle everything from factory coordination and custom packaging to quality control and US delivery. You bring the vision. We build the supply chain behind it.</p>
+      <a href="#" class="category-link">Build Your Brand</a>
+    </div>
+
+    <div class="category-card reveal reveal-delay-3">
+      <div class="category-number">04</div>
+      <span class="category-icon">⊕</span>
+      <h3 class="category-title">Sourcing & Consulting</h3>
+      <div class="category-subtitle">Know Before You Go.</div>
+      <p class="category-desc">Already importing or thinking about it? We help American business owners navigate the complex world of international trade — from finding the right factories to understanding duties, compliance, and contracts. Skip the costly mistakes. Start with a conversation.</p>
+      <a href="#" class="category-link">Talk to a Voyager</a>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<div class="mission-section" id="mission">
+  <div class="mission-bg"></div>
+  <div class="mission-inner">
+    <div class="mission-quote reveal">
+      "This is not just importing.<br>This is <em>Voyaging.</em>"
+    </div>
+    <div class="mission-text reveal reveal-delay-2">
+      <div class="section-label">Why We Do This Differently</div>
+      <p>Most supply chains are invisible. Products appear on shelves with no story, no accountability, and no connection to the people who made them.</p>
+      <p>Voyagers was built on a different belief — that trade should benefit everyone in the chain. The artisan. The farmer. The manufacturer. The American business owner. And ultimately the customer.</p>
+      <p>We travel. We verify. We build real relationships with the people making your products. And we bring that trust back to you in every shipment we deliver.</p>
+      <div class="mission-signature">— Voyagers Sourcing & Trading INTL</div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST -->
+<section class="trust-section">
+  <div class="reveal">
+    <div class="section-label">Trade You Can Count On</div>
+    <h2 class="section-title">Our Three<br><em>Promises</em></h2>
+  </div>
+
+  <div class="trust-grid">
+    <div class="trust-card reveal reveal-delay-1">
+      <div class="trust-number">I</div>
+      <div class="trust-title">Vetted Factories</div>
+      <p class="trust-desc">Every supplier in our network is personally verified — video calls, sample testing, documentation review, and third-party inspection when it counts.</p>
+    </div>
+    <div class="trust-card reveal reveal-delay-2">
+      <div class="trust-number">II</div>
+      <div class="trust-title">Full Cost Transparency</div>
+      <p class="trust-desc">No surprise fees. No hidden markups. You receive a complete landed cost quote covering factory price, freight, duties, and delivery — before you commit to anything.</p>
+    </div>
+    <div class="trust-card reveal reveal-delay-3">
+      <div class="trust-number">III</div>
+      <div class="trust-title">Single Point of Accountability</div>
+      <p class="trust-desc">One contact. One contract. One guarantee. If something is wrong with your shipment, we make it right. No runaround, no finger-pointing across oceans.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog-section" id="blog">
+  <div class="blog-header reveal">
+    <div>
+      <div class="section-label">The Trade Wind</div>
+      <h2 class="section-title">News & Insights for<br><em>American Business Owners</em></h2>
+    </div>
+    <div class="blog-categories">
+      <div class="blog-pill active">All</div>
+      <div class="blog-pill">Import & Export Policy</div>
+      <div class="blog-pill">Tariff Updates</div>
+      <div class="blog-pill">Trade Tips</div>
+    </div>
+  </div>
+
+  <div class="blog-grid reveal">
+    <div class="blog-card featured">
+      <div class="blog-date">May 2026</div>
+      <div class="blog-tag">Import & Export Policy</div>
+      <h3 class="blog-title">What the 2026 Vietnam Tariff Landscape Means for Small Importers</h3>
+      <p class="blog-excerpt">The trade relationship between the US and Vietnam is shifting. Here's what American business owners need to know right now before placing their next order — including the current 10% surcharge and what happens after July 2026.</p>
+      <a href="#" class="blog-read">Read More</a>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-date">May 2026</div>
+      <div class="blog-tag">Trade Tips</div>
+      <h3 class="blog-title">5 Customs Mistakes Small Businesses Make — And How to Avoid Them</h3>
+      <p class="blog-excerpt">From misclassified HS codes to missing certificates of origin, these errors cost importers thousands.</p>
+      <a href="#" class="blog-read">Read More</a>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-date">May 2026</div>
+      <div class="blog-tag">Policy Update</div>
+      <h3 class="blog-title">How Recent FinCEN Rule Changes Affect Your LLC in 2026</h3>
+      <p class="blog-excerpt">BOI reporting requirements for domestic US companies have been removed. What changed and what to watch next.</p>
+      <a href="#" class="blog-read">Read More</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name">Voyagers Sourcing & Trading INTL</div>
+        <div class="brand-tagline">Per Terram, Per Mare, Per Caelum</div>
+        <p>Ethical adventurers pursuing unique treasures with honesty and fair trade, respecting cultures and fostering sustainable connections.</p>
+      </div>
+      <div class="footer-col">
+        <h4>What We Source</h4>
+        <ul>
+          <li><a href="#">Vietnamese Hair</a></li>
+          <li><a href="#">Other Imports</a></li>
+          <li><a href="#">Private Label</a></li>
+          <li><a href="#">Consulting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>The Trade Wind</h4>
+        <ul>
+          <li><a href="#">Policy News</a></li>
+          <li><a href="#">Tariff Updates</a></li>
+          <li><a href="#">Trade Tips</a></li>
+          <li><a href="#">All Posts</a></li>
+        </ul>
+      </div>
+      <div class="footer-col" id="contact">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@voyagerstrading.com">info@voyagerstrading.com</a></li>
+          <li><a href="#">South Dakota, USA</a></li>
+          <li><a href="#">Start a Conversation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-latin">Per Terram, Per Mare, Per Caelum — By Land, By Sea, By Air</div>
+      <div class="footer-copy">© 2026 Voyagers Sourcing & Trading INTL, LLC. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursorRing');
+  let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    cursor.style.left = mouseX - 4 + 'px';
+    cursor.style.top = mouseY - 4 + 'px';
+  });
+
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    cursorRing.style.left = ringX - 16 + 'px';
+    cursorRing.style.top = ringY - 16 + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a, button, .blog-pill, .category-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'scale(2.5)';
+      cursorRing.style.transform = 'scale(1.5)';
+      cursorRing.style.borderColor = 'rgba(200,146,42,0.7)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'scale(1)';
+      cursorRing.style.transform = 'scale(1)';
+      cursorRing.style.borderColor = 'rgba(200,146,42,0.4)';
+    });
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Blog pill filter UI
+  document.querySelectorAll('.blog-pill').forEach(pill => {
+    pill.addEventListener('click', function() {
+      document.querySelectorAll('.blog-pill').forEach(p => p.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Smooth nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
