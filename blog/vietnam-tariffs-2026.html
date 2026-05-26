@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What the 2026 Vietnam Tariff Landscape Means for Small Importers — The Trade Wind</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --earth: #2C1810; --clay: #8B4513; --sand: #D4A96A;
+    --gold: #C8922A; --ivory: #F5ECD7; --sage: #7A8C6E;
+    --ocean: #2A4A5C; --dark: #1A0F08;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--dark); color: var(--ivory); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 60px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(26,15,8,0.97), transparent); }
+  .nav-logo { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 0.3em; color: var(--sand); text-decoration: none; }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,236,215,0.6); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--sand); }
+
+  .article-hero { padding: 140px 60px 60px; border-bottom: 1px solid rgba(200,146,42,0.12); }
+  .article-hero-inner { max-width: 860px; margin: 0 auto; }
+  .back-link { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 40px; transition: gap 0.3s; }
+  .back-link::before { content: '←'; font-size: 14px; }
+  .back-link:hover { gap: 14px; }
+  .post-tag { display: inline-block; padding: 4px 12px; background: rgba(200,146,42,0.1); font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .post-date { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em; color: rgba(200,146,42,0.4); text-transform: uppercase; margin-bottom: 20px; }
+  .article-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4.5vw, 60px); font-weight: 300; line-height: 1.1; color: var(--ivory); margin-bottom: 24px; }
+  .article-title em { font-style: italic; color: var(--sand); }
+  .article-intro { font-size: 17px; line-height: 1.9; color: rgba(245,236,215,0.7); border-left: 2px solid var(--gold); padding-left: 24px; }
+
+  .article-body { max-width: 860px; margin: 0 auto; padding: 60px; }
+
+  .article-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: var(--ivory); margin: 48px 0 16px; }
+  .article-body h3 { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin: 32px 0 12px; }
+  .article-body p { font-size: 15px; line-height: 1.9; color: rgba(245,236,215,0.7); margin-bottom: 20px; }
+  .article-body strong { color: var(--ivory); font-weight: 500; }
+
+  .callout { background: rgba(200,146,42,0.06); border-left: 3px solid var(--gold); padding: 24px 28px; margin: 32px 0; }
+  .callout p { margin-bottom: 0; color: rgba(245,236,215,0.8); font-size: 14px; }
+  .callout strong { color: var(--sand); }
+
+  .data-table { width: 100%; border-collapse: collapse; margin: 32px 0; }
+  .data-table th { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); padding: 12px 16px; border-bottom: 1px solid rgba(200,146,42,0.2); text-align: left; }
+  .data-table td { font-size: 13px; color: rgba(245,236,215,0.65); padding: 12px 16px; border-bottom: 1px solid rgba(200,146,42,0.08); }
+  .data-table tr:hover td { color: rgba(245,236,215,0.85); background: rgba(200,146,42,0.03); }
+  .data-table .highlight { color: var(--sage); font-weight: 500; }
+
+  .article-footer { max-width: 860px; margin: 0 auto; padding: 0 60px 80px; }
+  .article-footer-inner { border-top: 1px solid rgba(200,146,42,0.15); padding-top: 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .author-block { display: flex; flex-direction: column; gap: 4px; }
+  .author-name { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.2em; color: var(--sand); }
+  .author-title { font-size: 12px; color: rgba(245,236,215,0.4); }
+  .back-to-blog { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  .back-to-blog::before { content: '←'; }
+
+  footer { border-top: 1px solid rgba(200,146,42,0.15); padding: 60px; }
+  .footer-inner { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+  .footer-latin { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: rgba(200,146,42,0.4); }
+  .footer-copy { font-size: 11px; color: rgba(245,236,215,0.2); }
+
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .article-hero { padding: 100px 24px 40px; }
+    .article-body { padding: 40px 24px; }
+    .article-footer { padding: 0 24px 60px; }
+    footer { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Voyagers Sourcing & Trading INTL</a>
+  <ul class="nav-links">
+    <li><a href="/#categories">What We Source</a></li>
+    <li><a href="/#mission">Our Story</a></li>
+    <li><a href="/blog/">Trade Wind</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <a href="/blog/" class="back-link">The Trade Wind</a>
+    <div class="post-tag">Tariff Updates</div>
+    <div class="post-date">May 26, 2026</div>
+    <h1 class="article-title">What the 2026 Vietnam Tariff Landscape Means for <em>Small Importers</em></h1>
+    <p class="article-intro">The trade relationship between the US and Vietnam is shifting. A temporary 10% surcharge is currently in effect — but Vietnamese goods still face dramatically lower duties than comparable Chinese imports. Here is what American business owners need to know before placing their next order.</p>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <h2>The Current Tariff Situation</h2>
+  <p>If you have been watching the trade headlines in 2026, you know the landscape is moving fast. For American importers sourcing from Vietnam, the news is mixed but still strongly favorable compared to the alternative — China.</p>
+  <p>As of mid-2026, Vietnamese goods entering the US face their standard MFN (Most Favored Nation) base duty rates <strong>plus a temporary 10% Section 122 surcharge</strong> that runs through July 24, 2026. This surcharge was part of a broader tariff restructuring affecting multiple trading partners.</p>
+
+  <div class="callout">
+    <p><strong>Key takeaway:</strong> Even with the 10% surcharge, Vietnam remains far more favorable than China for most product categories. Chinese goods currently face Section 301 tariffs of 25–145% on top of base duties. Vietnam has zero Section 301 exposure.</p>
+  </div>
+
+  <h2>How This Affects Key Product Categories</h2>
+
+  <h3>Human Hair & Beauty Products</h3>
+  <p>Vietnamese human hair enters the US under HS Code 6703.00.3000 with a <strong>0% base duty rate</strong>. With the current 10% surcharge that brings your effective rate to 10% — still dramatically below what you would pay sourcing the same product from China, where UFLPA compliance risk adds both legal exposure and potential shipment seizures on top of tariff costs.</p>
+  <p>After July 2026 if the surcharge lapses, you are back to 0% — one of the most favorable import classifications in the entire tariff schedule.</p>
+
+  <h3>Textiles & Apparel</h3>
+  <p>Base duties on Vietnamese textiles range from 0–12% depending on the specific classification. With the surcharge, effective rates are 10–22%. Still well below the 35–50%+ faced by comparable Chinese goods under Section 301.</p>
+
+  <h3>Home Goods & Crafts</h3>
+  <p>Rattan, wicker, handcrafted wood goods, and ceramic products from Vietnam generally carry 0–3% base duties. Even at 10–13% with the surcharge, margins remain strong for importers serving US retail and hospitality buyers.</p>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Product Category</th>
+        <th>Base Duty (Vietnam)</th>
+        <th>With 2026 Surcharge</th>
+        <th>Comparable China Rate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Human Hair (HS 6703)</td><td>0%</td><td class="highlight">10%</td><td>25–35% + UFLPA risk</td></tr>
+      <tr><td>Synthetic Hair (HS 6704)</td><td>3.9%</td><td class="highlight">13.9%</td><td>28.9–53.9%</td></tr>
+      <tr><td>Cotton Apparel</td><td>0–12%</td><td class="highlight">10–22%</td><td>35–57%</td></tr>
+      <tr><td>Rattan/Wicker Goods</td><td>0–3%</td><td class="highlight">10–13%</td><td>25–28%</td></tr>
+      <tr><td>Ceramic Tableware</td><td>0–3%</td><td class="highlight">10–13%</td><td>25–28%</td></tr>
+      <tr><td>Coffee (Raw Beans)</td><td>0%</td><td class="highlight">10%</td><td>0% (no advantage)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>What Happens After July 2026</h2>
+  <p>The Section 122 surcharge was established as a temporary measure. As of this writing, Washington and Hanoi are actively negotiating a framework that could bring rates on specific product categories back to zero. Both governments have economic incentives to reach agreement — the US wants to reduce its trade deficit, Vietnam wants to maintain its export competitiveness and attract continued foreign investment.</p>
+  <p>The most likely scenario after July 2026 is one of three outcomes:</p>
+  <p><strong>Scenario A — Surcharge lapses entirely.</strong> Vietnamese goods return to base duty rates. Human hair goes back to 0%. This is the best case for importers and is possible if negotiations progress.</p>
+  <p><strong>Scenario B — Surcharge is extended at 10%.</strong> The current situation continues. Still favorable compared to China but your landed cost calculations stay at current levels.</p>
+  <p><strong>Scenario C — Negotiated sector-specific rates.</strong> Certain product categories get preferential rates as part of a broader trade agreement. This could actually produce better-than-current outcomes for specific importers.</p>
+
+  <div class="callout">
+    <p><strong>Our recommendation:</strong> Build your landed cost calculations at the current 10% surcharge rate. If it drops, your margins improve. If it stays, you are already priced correctly. Never build a business model around the optimistic scenario.</p>
+  </div>
+
+  <h2>What This Means for Your Sourcing Strategy</h2>
+  <p>The 2026 tariff landscape reinforces what savvy importers have known for several years — <strong>Vietnam is the most strategically sound sourcing destination for American small and mid-size importers</strong> in most product categories.</p>
+  <p>The combination of favorable base duty rates, zero UFLPA exposure, no Section 301 tariffs, established manufacturing infrastructure, and a government actively negotiating improved trade terms with the US makes Vietnam a durable choice, not just a China alternative.</p>
+  <p>For importers specifically in the human hair, beauty supply, textiles, and home goods categories, the case for Vietnam sourcing has never been stronger relative to the alternatives.</p>
+
+  <h2>Action Steps for American Business Owners</h2>
+  <p>If you are currently sourcing from China and have not begun diversifying your supply chain to Vietnam, the tariff math alone makes a compelling case. Even at 10% surcharge, your effective import cost on most categories is 15–40 percentage points lower than comparable Chinese goods.</p>
+  <p>If you are already sourcing from Vietnam, revisit your landed cost calculations to confirm you have accounted for the current surcharge in your client pricing. A 10% duty change that was not factored into your quotes is a direct hit to margin.</p>
+  <p>And if you are new to importing entirely — the Vietnam corridor is the right place to start. The documentation is clean, the customs process is straightforward, and the duty structure is as favorable as it gets.</p>
+
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="author-block">
+      <div class="author-name">Voyagers Sourcing & Trading INTL</div>
+      <div class="author-title">The Trade Wind — Import & Export Intelligence for American Business Owners</div>
+    </div>
+    <a href="/blog/" class="back-to-blog">All Articles</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.3em;color:var(--sand);text-decoration:none;">Voyagers Sourcing & Trading INTL</a>
+    <div class="footer-latin">Per Terram, Per Mare, Per Caelum</div>
+    <div class="footer-copy">© 2026 Voyagers Sourcing & Trading INTL, LLC</div>
+  </div>
+</footer>
+
+</body>
+</html>
