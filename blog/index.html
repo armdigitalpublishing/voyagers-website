@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Trade Wind — Voyagers Sourcing & Trading INTL</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --earth: #2C1810; --clay: #8B4513; --sand: #D4A96A;
+    --gold: #C8922A; --ivory: #F5ECD7; --sage: #7A8C6E;
+    --ocean: #2A4A5C; --mist: #E8DCC8; --dark: #1A0F08; --accent: #B8732A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--dark); color: var(--ivory); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 24px 60px; display: flex; justify-content: space-between; align-items: center;
+    background: linear-gradient(to bottom, rgba(26,15,8,0.97), transparent);
+  }
+  .nav-logo { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 0.3em; color: var(--sand); text-decoration: none; }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,236,215,0.6); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--sand); }
+
+  .page-hero {
+    padding: 160px 60px 80px;
+    position: relative;
+    border-bottom: 1px solid rgba(200,146,42,0.12);
+  }
+  .page-hero-inner { max-width: 1300px; margin: 0 auto; }
+  .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.5em; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 16px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+  .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 6vw, 80px); font-weight: 300; line-height: 1.0; color: var(--ivory); margin-bottom: 16px; }
+  .page-title em { font-style: italic; color: var(--sand); }
+  .page-subtitle { font-size: 15px; line-height: 1.8; color: rgba(245,236,215,0.55); max-width: 600px; margin-bottom: 40px; }
+
+  .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-pill { padding: 8px 20px; border: 1px solid rgba(200,146,42,0.2); font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,236,215,0.5); cursor: pointer; transition: all 0.3s; background: none; }
+  .filter-pill:hover, .filter-pill.active { border-color: var(--gold); color: var(--gold); }
+
+  .blog-main { max-width: 1300px; margin: 0 auto; padding: 80px 60px; }
+
+  .featured-post {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border: 1px solid rgba(200,146,42,0.12); margin-bottom: 60px;
+    transition: border-color 0.4s;
+  }
+  .featured-post:hover { border-color: rgba(200,146,42,0.35); }
+
+  .featured-visual {
+    background: linear-gradient(135deg, rgba(42,74,92,0.4) 0%, rgba(139,69,19,0.3) 100%);
+    min-height: 360px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .featured-visual::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(200,146,42,0.03) 40px, rgba(200,146,42,0.03) 41px);
+  }
+  .featured-visual-icon { font-size: 64px; opacity: 0.3; position: relative; z-index: 1; }
+
+  .featured-content { padding: 56px 48px; }
+  .post-tag { display: inline-block; padding: 4px 12px; background: rgba(200,146,42,0.1); font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .post-date { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em; color: rgba(200,146,42,0.4); text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .post-date::before { content: ''; display: block; width: 20px; height: 1px; background: rgba(200,146,42,0.3); }
+  .featured-label { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em; color: var(--sage); text-transform: uppercase; margin-bottom: 16px; }
+  .post-title { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; line-height: 1.2; color: var(--ivory); margin-bottom: 16px; }
+  .post-title a { color: inherit; text-decoration: none; transition: color 0.3s; }
+  .post-title a:hover { color: var(--sand); }
+  .post-excerpt { font-size: 14px; line-height: 1.8; color: rgba(245,236,215,0.55); margin-bottom: 32px; }
+  .read-link { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: gap 0.3s; }
+  .read-link:hover { gap: 18px; }
+  .read-link::after { content: '→'; font-size: 14px; }
+
+  .posts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(200,146,42,0.08); }
+  .post-card { background: var(--dark); padding: 48px 40px; transition: background 0.4s; }
+  .post-card:hover { background: rgba(139,69,19,0.06); }
+  .post-card .post-title { font-size: 22px; margin-bottom: 12px; }
+  .post-card .post-excerpt { font-size: 13px; margin-bottom: 24px; }
+
+  .section-label { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.5em; color: var(--gold); text-transform: uppercase; margin-bottom: 40px; display: flex; align-items: center; gap: 16px; }
+  .section-label::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+
+  footer { border-top: 1px solid rgba(200,146,42,0.15); padding: 60px; }
+  .footer-inner { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.3em; color: var(--sand); }
+  .footer-latin { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: rgba(200,146,42,0.4); }
+  .footer-copy { font-size: 11px; color: rgba(245,236,215,0.2); }
+  .footer-home { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  .footer-home::before { content: '←'; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: all 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.15s; }
+  .reveal-delay-2 { transition-delay: 0.3s; }
+
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .page-hero { padding: 120px 24px 60px; }
+    .blog-main { padding: 40px 24px; }
+    .featured-post { grid-template-columns: 1fr; }
+    .featured-visual { min-height: 200px; }
+    .featured-content { padding: 32px 24px; }
+    .posts-grid { grid-template-columns: 1fr; }
+    footer { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Voyagers Sourcing & Trading INTL</a>
+  <ul class="nav-links">
+    <li><a href="/#categories">What We Source</a></li>
+    <li><a href="/#mission">Our Story</a></li>
+    <li><a href="/blog/" class="active">Trade Wind</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="hero-eyebrow">The Trade Wind</div>
+    <h1 class="page-title">News & Insights for<br><em>American Business Owners</em></h1>
+    <p class="page-subtitle">Tariffs change. Policies shift. Markets move. We keep you informed so you can stay ahead of what's coming in international trade.</p>
+    <div class="filter-bar">
+      <button class="filter-pill active">All</button>
+      <button class="filter-pill">Import & Export Policy</button>
+      <button class="filter-pill">Tariff Updates</button>
+      <button class="filter-pill">Trade Tips</button>
+    </div>
+  </div>
+</div>
+
+<div class="blog-main">
+
+  <div class="section-label reveal">Latest Articles</div>
+
+  <!-- Featured Post -->
+  <div class="featured-post reveal">
+    <div class="featured-visual">
+      <div class="featured-visual-icon">⚖️</div>
+    </div>
+    <div class="featured-content">
+      <div class="featured-label">Featured Article</div>
+      <div class="post-tag">Tariff Updates</div>
+      <div class="post-date">May 2026</div>
+      <h2 class="post-title"><a href="/blog/vietnam-tariffs-2026.html">What the 2026 Vietnam Tariff Landscape Means for Small Importers</a></h2>
+      <p class="post-excerpt">The trade relationship between the US and Vietnam is shifting. A temporary 10% surcharge is in effect through July 2026 — but Vietnamese goods still face dramatically lower duties than comparable Chinese imports. Here's what American business owners need to know before placing their next order.</p>
+      <a href="/blog/vietnam-tariffs-2026.html" class="read-link">Read Full Article</a>
+    </div>
+  </div>
+
+  <!-- Post Grid -->
+  <div class="posts-grid">
+    <div class="post-card reveal reveal-delay-1">
+      <div class="post-tag">Trade Tips</div>
+      <div class="post-date">May 2026</div>
+      <h3 class="post-title"><a href="/blog/customs-mistakes.html">5 Customs Mistakes Small Businesses Make — And How to Avoid Them</a></h3>
+      <p class="post-excerpt">From misclassified HS codes to missing certificates of origin, these errors cost importers thousands of dollars and weeks of delays. We break down the five most common pitfalls and exactly how to avoid them.</p>
+      <a href="/blog/customs-mistakes.html" class="read-link">Read Article</a>
+    </div>
+
+    <div class="post-card reveal reveal-delay-2">
+      <div class="post-tag">Import & Export Policy</div>
+      <div class="post-date">May 2026</div>
+      <h3 class="post-title"><a href="/blog/fincen-llc-update.html">How Recent FinCEN Rule Changes Affect Your LLC in 2026</a></h3>
+      <p class="post-excerpt">The Corporate Transparency Act's BOI reporting requirements have been removed for all US-formed domestic companies. What changed, why it matters, and what small business owners should still be watching.</p>
+      <a href="/blog/fincen-llc-update.html" class="read-link">Read Article</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-home">Back to Voyagers</a>
+    <div class="footer-latin">Per Terram, Per Mare, Per Caelum</div>
+    <div class="footer-copy">© 2026 Voyagers Sourcing & Trading INTL, LLC</div>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.filter-pill').forEach(pill => {
+    pill.addEventListener('click', function() {
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
