@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Recent FinCEN Rule Changes Affect Your LLC in 2026 — The Trade Wind</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --sand: #D4A96A; --gold: #C8922A; --ivory: #F5ECD7; --sage: #7A8C6E; --dark: #1A0F08; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--dark); color: var(--ivory); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 60px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(26,15,8,0.97), transparent); }
+  .nav-logo { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 0.3em; color: var(--sand); text-decoration: none; }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,236,215,0.6); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--sand); }
+  .article-hero { padding: 140px 60px 60px; border-bottom: 1px solid rgba(200,146,42,0.12); }
+  .article-hero-inner { max-width: 860px; margin: 0 auto; }
+  .back-link { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 40px; transition: gap 0.3s; }
+  .back-link::before { content: '←'; font-size: 14px; }
+  .back-link:hover { gap: 14px; }
+  .post-tag { display: inline-block; padding: 4px 12px; background: rgba(200,146,42,0.1); font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .post-date { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em; color: rgba(200,146,42,0.4); text-transform: uppercase; margin-bottom: 20px; }
+  .article-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4.5vw, 60px); font-weight: 300; line-height: 1.1; color: var(--ivory); margin-bottom: 24px; }
+  .article-title em { font-style: italic; color: var(--sand); }
+  .article-intro { font-size: 17px; line-height: 1.9; color: rgba(245,236,215,0.7); border-left: 2px solid var(--gold); padding-left: 24px; }
+  .article-body { max-width: 860px; margin: 0 auto; padding: 60px; }
+  .article-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: var(--ivory); margin: 48px 0 16px; }
+  .article-body h3 { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin: 32px 0 12px; }
+  .article-body p { font-size: 15px; line-height: 1.9; color: rgba(245,236,215,0.7); margin-bottom: 20px; }
+  .article-body strong { color: var(--ivory); font-weight: 500; }
+  .callout { background: rgba(200,146,42,0.06); border-left: 3px solid var(--gold); padding: 24px 28px; margin: 32px 0; }
+  .callout p { margin-bottom: 0; color: rgba(245,236,215,0.8); font-size: 14px; }
+  .callout strong { color: var(--sand); }
+  .callout.warning { border-left-color: #B8732A; background: rgba(184,115,42,0.06); }
+  .timeline { margin: 32px 0; }
+  .timeline-item { display: flex; gap: 24px; margin-bottom: 24px; }
+  .timeline-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); margin-top: 6px; flex-shrink: 0; }
+  .timeline-content { flex: 1; }
+  .timeline-date { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+  .timeline-text { font-size: 14px; color: rgba(245,236,215,0.65); line-height: 1.7; }
+  .status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+  .status-card { padding: 24px; border: 1px solid rgba(200,146,42,0.15); }
+  .status-card .status-label { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px; }
+  .status-card .status-value { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 400; }
+  .status-card.good .status-label { color: var(--sage); }
+  .status-card.good .status-value { color: var(--ivory); }
+  .status-card.watch .status-label { color: var(--gold); }
+  .status-card.watch .status-value { color: var(--sand); }
+  .article-footer { max-width: 860px; margin: 0 auto; padding: 0 60px 80px; }
+  .article-footer-inner { border-top: 1px solid rgba(200,146,42,0.15); padding-top: 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .author-name { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.2em; color: var(--sand); }
+  .author-title { font-size: 12px; color: rgba(245,236,215,0.4); margin-top: 4px; }
+  .back-to-blog { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  .back-to-blog::before { content: '←'; }
+  footer { border-top: 1px solid rgba(200,146,42,0.15); padding: 60px; }
+  .footer-inner { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+  .footer-latin { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: rgba(200,146,42,0.4); }
+  .footer-copy { font-size: 11px; color: rgba(245,236,215,0.2); }
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; } .nav-links { display: none; }
+    .article-hero { padding: 100px 24px 40px; }
+    .article-body { padding: 40px 24px; }
+    .status-grid { grid-template-columns: 1fr; }
+    .article-footer { padding: 0 24px 60px; }
+    footer { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Voyagers Sourcing & Trading INTL</a>
+  <ul class="nav-links">
+    <li><a href="/#categories">What We Source</a></li>
+    <li><a href="/#mission">Our Story</a></li>
+    <li><a href="/blog/">Trade Wind</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <a href="/blog/" class="back-link">The Trade Wind</a>
+    <div class="post-tag">Import & Export Policy</div>
+    <div class="post-date">May 26, 2026</div>
+    <h1 class="article-title">How Recent FinCEN Rule Changes<br>Affect Your <em>LLC in 2026</em></h1>
+    <p class="article-intro">The Corporate Transparency Act's Beneficial Ownership Information reporting requirements have been removed for all US-formed domestic companies as of March 2025. What changed, why it matters, and what small business owners should still be watching.</p>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <h2>What Was the BOI Requirement?</h2>
+  <p>When the Corporate Transparency Act (CTA) was enacted in 2021 and took effect January 1, 2024, it required most US LLCs, corporations, and other registered business entities to file a Beneficial Ownership Information (BOI) report with FinCEN — the Financial Crimes Enforcement Network, a division of the US Treasury Department.</p>
+  <p>The intent was to combat money laundering and financial crime by creating a federal database of who actually owns and controls US businesses. Every beneficial owner — defined as anyone owning 25% or more, or exercising substantial control — had to provide their name, date of birth, address, and a copy of a government-issued ID.</p>
+  <p>For the estimated 32 million small businesses affected, this was a new compliance burden with serious teeth: civil penalties of up to $500 per day for non-compliance and potential criminal exposure.</p>
+
+  <h2>What Changed in 2025</h2>
+
+  <p>The BOI requirement went through a turbulent legal and legislative journey throughout 2024 and into 2025 — multiple court injunctions, congressional action, and executive branch decisions all intersected to reshape the rule significantly.</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-date">January 2024</div>
+        <div class="timeline-text">CTA BOI reporting requirement takes effect. Most existing companies given until January 1, 2025 to file. New companies formed in 2024 given 90 days from formation.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Late 2024</div>
+        <div class="timeline-text">Multiple federal courts issue injunctions blocking enforcement. Deadlines are repeatedly extended amid legal uncertainty.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-date">March 2, 2025</div>
+        <div class="timeline-text">Treasury Department announces it will not enforce BOI requirements against US citizens or domestic reporting companies.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-date">March 26, 2025</div>
+        <div class="timeline-text">FinCEN issues an interim final rule formally removing BOI reporting requirements for all US-created entities and their beneficial owners. Only foreign entities registered to do business in the US remain subject to BOI reporting.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Current status as of May 2026:</strong> If you formed your LLC in the United States — including in South Dakota or any other state — you are not required to file a BOI report with FinCEN. This exemption applies regardless of when your company was formed.</p>
+  </div>
+
+  <h2>What This Means for Your Business Right Now</h2>
+
+  <div class="status-grid">
+    <div class="status-card good">
+      <div class="status-label">Domestic US LLC</div>
+      <div class="status-value">No BOI filing required ✓</div>
+    </div>
+    <div class="status-card good">
+      <div class="status-label">US Persons as Beneficial Owners</div>
+      <div class="status-value">Exempt from reporting ✓</div>
+    </div>
+    <div class="status-card watch">
+      <div class="status-label">Foreign Entities in US</div>
+      <div class="status-value">Still required to file</div>
+    </div>
+    <div class="status-card watch">
+      <div class="status-label">Final Rule Status</div>
+      <div class="status-value">Interim — watch for updates</div>
+    </div>
+  </div>
+
+  <p>For the vast majority of American small business owners — including sole member LLCs, husband and wife LLCs, multi-member partnerships, and small corporations — this means one less compliance item on your list. No filing fee, no document submission, no annual update requirement.</p>
+
+  <h2>What About Foreign Business Partners?</h2>
+  <p>If your business has any foreign ownership — meaning a non-US person owns 25% or more of your LLC — the situation is more complex and you should consult with a business attorney. The current exemption applies to US-created entities, but foreign beneficial owners in those entities operate in a grey area that is still being clarified as FinCEN works toward a final rule.</p>
+  <p>For most American small business owners operating import businesses with US domestic ownership this does not apply. But it is worth knowing if your ownership structure changes.</p>
+
+  <h2>Should You Have Filed Before March 2025?</h2>
+  <p>This is the question many small business owners are asking. The answer is nuanced — FinCEN has stated it will not enforce penalties against domestic companies for the period before the interim final rule took effect. If you did not file a BOI report, you are not currently facing penalties and are not required to file one now.</p>
+  <p>If you did file one before the rule changed, that filing is on record but there are no negative consequences. You simply no longer have an ongoing obligation to update it for changes to your ownership information.</p>
+
+  <div class="callout warning">
+    <p><strong>Important caveat:</strong> The March 2025 rule is an <em>interim final rule</em>, not a permanent legislative change. FinCEN has indicated it will issue a final rule that may modify requirements further. Congress could also act to reinstate some form of reporting requirement through legislation. Monitor this space — we will update The Trade Wind as the situation evolves.</p>
+  </div>
+
+  <h2>The Bigger Picture for Small Business Compliance</h2>
+  <p>The BOI saga illustrates something important for small business owners — federal compliance requirements can appear, disappear, and reappear faster than most people expect. The businesses that avoid costly surprises are the ones that stay informed and maintain relationships with professionals who monitor these changes.</p>
+  <p>For import businesses specifically, the compliance landscape is particularly active. Tariff rules, customs regulations, trade agreement terms, and entity reporting requirements all shift regularly. Building a small team of advisors — a customs broker, a CPA, and a business attorney — gives you real-time awareness of changes that affect your bottom line.</p>
+
+  <h3>What to Watch in 2026</h3>
+  <p>Beyond the BOI situation, small business owners with import operations should monitor three regulatory areas actively in 2026: the outcome of US-Vietnam trade negotiations and the Section 122 surcharge expiration in July, any updates to the UFLPA enforcement priorities affecting supply chain documentation requirements, and the ongoing evolution of de minimis thresholds which affect how small individual shipments are treated at the border.</p>
+  <p>The Trade Wind will cover each of these as they develop. Subscribe to our updates to stay ahead of what's coming.</p>
+
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div>
+      <div class="author-name">Voyagers Sourcing & Trading INTL</div>
+      <div class="author-title">The Trade Wind — Import & Export Intelligence for American Business Owners</div>
+    </div>
+    <a href="/blog/" class="back-to-blog">All Articles</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.3em;color:var(--sand);text-decoration:none;">Voyagers Sourcing & Trading INTL</a>
+    <div class="footer-latin">Per Terram, Per Mare, Per Caelum</div>
+    <div class="footer-copy">© 2026 Voyagers Sourcing & Trading INTL, LLC</div>
+  </div>
+</footer>
+
+</body>
+</html>
